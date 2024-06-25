@@ -17,7 +17,6 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.gronnmann.utils.coinflipper.Debug;
 import io.github.gronnmann.utils.coinflipper.ItemUtils;
-import io.github.gronnmann.utils.coinflipper.ReflectionUtils;
 
 public class PagedInventory implements Inventory{
 	
@@ -37,6 +36,7 @@ public class PagedInventory implements Inventory{
 	private HashMap<Integer, Inventory> invs = new HashMap<Integer, Inventory>();
 	private Inventory copyFrom;
 	private String id;
+	private String name;
 	protected Inventory redirectToBack;
 	private boolean unloadOnClose;
 	
@@ -47,6 +47,7 @@ public class PagedInventory implements Inventory{
 	public PagedInventory(String name, ItemStack next, ItemStack last, ItemStack back, String id, Inventory redirectToBack, boolean unloadOnClose){
 		
 		this.id = id;
+		this.name = name;
 		this.redirectToBack = redirectToBack;
 		this.unloadOnClose = unloadOnClose;
 		
@@ -82,7 +83,7 @@ public class PagedInventory implements Inventory{
 		
 		int count = sizePages();
 		
-		Inventory nextPage = Bukkit.createInventory(copyFrom.getHolder(), copyFrom.getSize(), ReflectionUtils.getInventoryName(copyFrom));
+		Inventory nextPage = Bukkit.createInventory(copyFrom.getHolder(), copyFrom.getSize(), name);
 		
 		nextPage.setContents(copyFrom.getContents());
 		
@@ -312,7 +313,7 @@ public class PagedInventory implements Inventory{
 
 	
 	public String getName() {
-		return ReflectionUtils.getInventoryName(copyFrom);
+		return name;
 	}
 
 	
@@ -329,7 +330,7 @@ public class PagedInventory implements Inventory{
 
 	
 	public String getTitle() {
-		return ReflectionUtils.getInventoryName(copyFrom);
+		return name;
 	}
 
 	

@@ -26,7 +26,6 @@ import io.github.gronnmann.coinflipper.events.AnimationFrameChangeEvent;
 import io.github.gronnmann.utils.coinflipper.Debug;
 import io.github.gronnmann.utils.coinflipper.InventoryUtils;
 import io.github.gronnmann.utils.coinflipper.ItemUtils;
-import io.github.gronnmann.utils.coinflipper.ReflectionUtils;
 import io.github.gronnmann.utils.coinflipper.input.InputData;
 import io.github.gronnmann.utils.coinflipper.input.InputData.InputType;
 import io.github.gronnmann.utils.coinflipper.input.InputManager;
@@ -307,7 +306,7 @@ public class AnimationGUI implements Listener{
 		Player p = (Player) e.getWhoClicked();
 		
 		
-		String invName = ReflectionUtils.getInventoryName(e.getInventory());
+		String invName = e.getView().getTitle();
 		
 		int frameId = Integer.parseInt(invName.split(" ")[3]);
 		
@@ -356,7 +355,7 @@ public class AnimationGUI implements Listener{
 		if (!(e.getInventory().getHolder() instanceof AnimationEditorInventoryHolder))return;
 		
 		
-		String invName = ReflectionUtils.getInventoryName(e.getInventory());
+		String invName = e.getView().getTitle();
 		
 		int frameId = Integer.parseInt(invName.split(" ")[3]);
 		

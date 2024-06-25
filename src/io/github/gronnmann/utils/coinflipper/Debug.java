@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 
 public class Debug {
+	// :D
 	public static void print(String message){
 		File debugEnabler = new File(Bukkit.getServer().getWorldContainer().getAbsolutePath(), "debug.yml");
 		if (!debugEnabler.exists())return;

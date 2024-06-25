@@ -17,12 +17,7 @@ public class InventoryUtils {
 		newInv.setContents(inv.getContents());
 		return newInv;
 	}
-	
-	public static Inventory clone(Inventory inv){
-		Inventory newInv = Bukkit.createInventory(inv.getHolder(), inv.getSize(), ReflectionUtils.getInventoryName(inv));
-		newInv.setContents(inv.getContents());
-		return newInv;
-	}
+
 	
 	public static int getAvailableSlots(ItemStack item, Inventory inv) {
 		int count = 0;

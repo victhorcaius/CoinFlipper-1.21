@@ -74,7 +74,12 @@ public class GeneralUtils {
 	
 	
 	public static int getMinecraftVersion() {
-		return 21;
+		try{
+			String version = Bukkit.getBukkitVersion().split("-")[0].split("\\.")[1];
+			return Integer.parseInt(version);
+		} catch (Exception e) {
+			return 21;
+		}
 	}
 	
 }

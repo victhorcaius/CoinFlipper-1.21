@@ -90,8 +90,7 @@ public class SelectionScreen implements Listener{
 	private void generateAnimations(String p1, String p2, String winner, double moneyWon, String anim){
 		
 		String invName = Message.GUI_GAME.getMessage().replace("%PLAYER1%", p1).replace("%PLAYER2%", p2);
-		String packageName = Bukkit.getServer().getClass().getPackage().getName();
-		int vID = Integer.parseInt(packageName.split("_")[1]);
+		int vID = GeneralUtils.getMinecraftVersion();
 		
 		if (invName.length() > 32 && vID < 9){
 			invName = Message.GUI_GAME_18.getMessage();
