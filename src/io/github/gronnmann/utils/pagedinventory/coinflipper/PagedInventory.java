@@ -90,7 +90,7 @@ public class PagedInventory implements Inventory{
 		if (preview > 64){
 			preview = 64;
 		}
-		if (preview < 0){
+		if (preview <= 0){
 			preview = 1;
 		}
 		

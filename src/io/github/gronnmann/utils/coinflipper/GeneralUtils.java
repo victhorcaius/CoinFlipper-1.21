@@ -74,8 +74,7 @@ public class GeneralUtils {
 	
 	
 	public static int getMinecraftVersion() {
-		String packageName = Bukkit.getServer().getClass().getPackage().getName();
-		return Integer.parseInt(packageName.split("_")[1]);
+		return 21;
 	}
 	
 }

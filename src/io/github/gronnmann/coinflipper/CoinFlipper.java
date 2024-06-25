@@ -41,8 +41,8 @@ public class CoinFlipper extends JavaPlugin{
 		
 		enableEconomy();
 		
-		versionId = GeneralUtils.getMinecraftVersion();
-		Debug.print("Minecraft version detected: " + versionId);
+		// versionId = GeneralUtils.getMinecraftVersion();
+		// Debug.print("Minecraft version detected: " + versionId);
 		
 		ConfigManager.getManager().setup();
 		

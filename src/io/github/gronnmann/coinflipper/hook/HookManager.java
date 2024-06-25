@@ -51,10 +51,6 @@ public class HookManager {
 		if (!(ChatPerWorld == null)){
 			this.setHooked(HookType.ChatPerWorld);
 		}*/
-		Plugin CombatLogX = Bukkit.getPluginManager().getPlugin("CombatLogX");
-		if (!(CombatLogX == null)){
-			this.setHooked(HookType.CombatLogX);
-		}
 		
 	}
 	
@@ -74,11 +70,6 @@ public class HookManager {
 			break;
 		case ProtocolLib:
 			hooks.put(hook, HookProtocolLib.getHook().register(pl));
-			break;
-		case CombatLogX:
-			String version = Bukkit.getPluginManager().getPlugin("CombatLogX").getDescription().getVersion();
-			if(version.startsWith("10")) HookCombatLogX10.getHook().register();
-			else if(version.startsWith("11")) HookCombatLogX11.getHook().register();
 			break;
 		}
 		
@@ -105,11 +96,7 @@ public class HookManager {
 		/*if (this.isHooked(HookType.PvPManager)){
 			return HookPvpManager.getHook().isTagged(pl);
 		}*/
-		if (this.isHooked(HookType.CombatLogX)){
-			String version = Bukkit.getPluginManager().getPlugin("CombatLogX").getDescription().getVersion();
-			if(version.startsWith("10")) return HookCombatLogX10.getHook().isTagged(player);
-			else if(version.startsWith("11")) return HookCombatLogX11.getHook().isTagged(player);
-		}
+
 		
 		return false;
 	}
