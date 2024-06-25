@@ -3,7 +3,7 @@ version: 2.92
 author: gronnmann
 main: io.github.gronnmann.coinflipper.CoinFlipper
 depend: [Vault]
-softdepend: [ProtocolLib, CombatTagPlus, PvPManager, ChatPerWorld, CombatLogX, PlaceholderAPI]
+softdepend: [ProtocolLib, CombatTagPlus, PvPManager, ChatPerWorld, PlaceholderAPI]
 commands:
     coinflipper:
         aliases: [ cf, coinflip ]
