@@ -4,6 +4,7 @@
 - Works on 1.21 (Only tested on 1.21, 1.13< will not work)
 - Command completion
 - /cf create, exists to be less confusing
+- HEX colors
 
 ## Potential plans
 - Make the create gui less ass
