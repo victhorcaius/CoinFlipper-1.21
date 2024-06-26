@@ -60,8 +60,8 @@ public class CoinFlipper extends JavaPlugin{
 		HookManager.getManager().registerHooks();
 		
 		CreationGUI.getInstance().generatePreset();
-		
-		this.getCommand("coinflipper").setExecutor(new CommandsManager());
+
+		new CommandsManager(this);
 		
 		
 		BettingTimer task = new BettingTimer();

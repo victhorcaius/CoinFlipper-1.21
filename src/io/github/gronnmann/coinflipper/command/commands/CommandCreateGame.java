@@ -30,14 +30,19 @@ public class CommandCreateGame extends CommandModule{
 		
 		
 		int side = -1;
-		if (args[1].equalsIgnoreCase("heads")||args[1].equalsIgnoreCase("h")||args[1].equalsIgnoreCase(Message.HEADS.getMessage())){
+		if (args.length != 1) {
+			if (args[1].equalsIgnoreCase("heads")||args[1].equalsIgnoreCase("h")||args[1].equalsIgnoreCase(Message.HEADS.getMessage())){
+				side = 1;
+			}else if (args[1].equalsIgnoreCase("tails")||args[1].equalsIgnoreCase("t")||args[1].equalsIgnoreCase(Message.TAILS.getMessage())){
+				side = 0;
+			} else{
+				p.sendMessage(Message.PLACE_TRIAL_PICKSIDE.getMessage());
+				return;
+			}
+		} else {// if side is not specified, choose heads
 			side = 1;
-		}else if (args[1].equalsIgnoreCase("tails")||args[1].equalsIgnoreCase("t")||args[1].equalsIgnoreCase(Message.TAILS.getMessage())){
-			side = 0;
-		}else{
-			p.sendMessage(Message.PLACE_TRIAL_PICKSIDE.getMessage());
-			return;
 		}
+
 		
 		
 		GamesManager.getManager().createGame(p, side, i);

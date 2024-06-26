@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import io.github.gronnmann.coinflipper.CoinFlipper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,7 +33,7 @@ public class CommandsManager implements CommandExecutor{
 	private CommandModule creationModule, guiCmd;
 	
 	//setup commands
-	public CommandsManager() {
+	public CommandsManager(CoinFlipper plugin) {
 		help = Message.SYNTAX_L1.getMessage()+"\n"+Message.SYNTAX_L2.getMessage()+"\n"+
 				Message.SYNTAX_L3.getMessage()+"\n"+Message.SYNTAX_L4.getMessage()+"\n" + Message.SYNTAX_L5.getMessage();
 		
@@ -48,9 +49,13 @@ public class CommandsManager implements CommandExecutor{
 		modules.add(new CommandAnimation(new String[] {Message.CMD_ANIMATION.getMessage(), "animation", "anim"}, "animation", 0, -1, true));
 		modules.add(new CommandReload(Message.CMD_RELOAD.getMessage(), "reload", 0, -1, false));
 		modules.add(new CommandConfigEditor(Message.CMD_CONFIG.getMessage(), "config", 0, -1, true));
+
+		modules.add(new CommandCreateGame("create", "create", 1, 2, true));
 		
-		
-		creationModule = new CommandCreateGame("create", "create", 2, 2, true);
+		creationModule = new CommandCreateGame("create", "create", 1, 2, true);
+
+		plugin.getCommand("coinflipper").setExecutor(this);
+		plugin.getCommand("coinflipper").setTabCompleter(new CommandCompleter(modules));
 	}
 	
 	
