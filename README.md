@@ -10,3 +10,6 @@
 - Make the create gui less ass
 - Custom model data
 
+## Issues
+- once players leave games dont get handled correctly
+
